@@ -1,0 +1,6 @@
+requests
+gitpython
+openai
+flask
+rich
+colorama
