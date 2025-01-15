@@ -22,24 +22,6 @@ else
     echo "pip3 is already installed."
 fi
 
-# Prompt for GITHUB_TOKEN if not already set
-if [ -z "$GITHUB_TOKEN" ]; then
-    read -p "Enter your GITHUB_TOKEN: " GITHUB_TOKEN
-    export GITHUB_TOKEN
-fi
-
-# Prompt for GITHUB_USER if not already set
-if [ -z "$GITHUB_USER" ]; then
-    read -p "Enter your GITHUB_USER: " GITHUB_USER
-    export GITHUB_USER
-fi
-
-# Prompt for OPENAI_API_KEY if not already set
-if [ -z "$OPENAI_API_KEY" ]; then
-    read -p "Enter your OPENAI_API_KEY: " OPENAI_API_KEY
-    export OPENAI_API_KEY
-fi
-
 # Run pip install commands
 if [ -f setup.py ]; then
     echo "Running pip install ."
