@@ -3,6 +3,10 @@
 
 Welcome to **Erl**, your personal AI-powered code generator designed to supercharge your development workflow and help you get your projects off the ground faster. Erl isn't just a tool—it's your partner in innovation, built to seamlessly generate, review, and manage code with precision and speed.
 
+### Preview
+For more details, visit the [official documentation](https://www.loom.com/share/7726e273f081427e99f31539998de834).
+
+
 ## Features
 
 ### 🚀 Supercharge Your Development
