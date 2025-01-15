@@ -47,6 +47,8 @@ You will need to ensure you have an OPENAI_API_KEY, a GITHUB_TOKEN, and a GITHUB
 `export GITHUB_USER="VALUE"`
 `export GITHUB_TOKEN="VALUE"`
 
+Important: You will need to buy Open AI credits to run this
+
 ### 3. Launch the Process
 Run the script to start the API and initialize Erl:
 ```bash
