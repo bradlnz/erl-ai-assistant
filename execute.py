@@ -16,7 +16,6 @@ DEBUG = False
 def execute_main_task(user_input):
     main(user_input)
 
-# Set your OpenAI API key and GitHub credentials
 if __name__ == "__main__":
     try:
         os.system('cls' if os.name == 'nt' else 'clear')
