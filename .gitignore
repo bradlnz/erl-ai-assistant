@@ -1,0 +1,6 @@
+/generated
+/build
+/src/__pycache__
+/erl_code_generator.egg-info
+.env
+api.log

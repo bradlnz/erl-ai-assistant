@@ -8,7 +8,7 @@ Welcome to **Erl**, your personal AI-powered code generator designed to supercha
 ### 🚀 Supercharge Your Development
 Erl helps you:
 - Generate high-quality code based on your prompts.
-- Review and refine your existing code with AI insights.
+- Create an initial review of the generated code with AI insights.
 - Extract files and represent them as JSON for easy integration and manipulation.
 
 ### 🛠 Locally Built API
@@ -28,7 +28,7 @@ Follow these steps to get Erl up and running on your local machine:
 ### 1. Clone the Repository
 ```bash
 git clone <repository_url>
-cd erl
+cd erl-code-generator
 ```
 
 ### 2. Prepare to Launch
@@ -36,6 +36,7 @@ Set up the necessary permissions for the script:
 ```bash
 chmod 700 run.sh
 ```
+You will need to ensure you have an OPENAI_API_KEY, a GITHUB_TOKEN, and a GITHUB_USER defined as an environment variable.
 
 ### 3. Launch the Process
 Run the script to start the API and initialize Erl:
@@ -44,7 +45,7 @@ Run the script to start the API and initialize Erl:
 ```
 
 The API will now be live and ready to assist you with code generation and review tasks.
-
+Visit: http://127.0.0.1:5000/apidocs/#/ to see API methods
 ## How It Works
 
 ### File Extraction Endpoint

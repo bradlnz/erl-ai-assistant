@@ -1,0 +1,118 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Erl API code generation",
+      "description": "This is the localised API used for Erl",
+      "version": "1.0.0",
+      "contact": {
+        "name": "Bradley Lietz"
+      }
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "paths": {
+      "/review": {
+        "post": {
+          "summary": "Code Review",
+          "description": "Perform a code review for a specific pull request in a GitHub repository.",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "repo_name": {
+                    "type": "string",
+                    "example": "example-repo"
+                  },
+                  "pr_number": {
+                    "type": "integer",
+                    "example": 123
+                  }
+                },
+                "required": ["repo_name", "pr_number"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Code review initiated successfully.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "string",
+                    "example": "OK"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid input provided.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "No repo_name provided"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/files": {
+        "post": {
+          "summary": "Generate Files",
+          "description": "Generate code files based on a given prompt.",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "example": "Create a Python script to add two numbers."
+                  }
+                },
+                "required": ["prompt"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Code generation successful.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string",
+                    "example": "Generated code content here."
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid input provided.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string",
+                    "example": "No prompt provided"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

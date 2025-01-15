@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="autocodegeneraterl",
+    name="erl_code_generator",
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
@@ -10,11 +10,12 @@ setup(
         "openai",
         "flask",
         "rich",
-        "colorama"
+        "colorama",
+        "flasgger"
     ],
     entry_points={
         "console_scripts": [
-            "ai_creator=src.main:main",
+            "erl_code_generator=src.main:main",
         ],
     },
     author="Bradley Lietz",
