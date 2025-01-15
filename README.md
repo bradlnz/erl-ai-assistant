@@ -42,7 +42,10 @@ Set up the necessary permissions for the script:
 ```bash
 chmod 700 run.sh
 ```
-You will need to ensure you have an OPENAI_API_KEY, a GITHUB_TOKEN, and a GITHUB_USER defined as an environment variable.
+You will need to ensure you have an OPENAI_API_KEY, a GITHUB_TOKEN, and a GITHUB_USER defined as an environment variables.
+`export OPENAI_API_KEY="VALUE"`
+`export GITHUB_USER="VALUE"`
+`export GITHUB_TOKEN="VALUE"`
 
 ### 3. Launch the Process
 Run the script to start the API and initialize Erl:
