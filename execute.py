@@ -11,7 +11,7 @@ import threading
 import time
 import sys
 
-DEBUG = True
+DEBUG = False
 
 def execute_main_task(user_input):
     main(user_input)
