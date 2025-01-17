@@ -33,6 +33,7 @@ def generate_code(user_input, base_path):
     
     response = llm.chat.completions.create(
         model="gpt-4o",
+        temperature=0.7,
         messages=[
             {
                 "role": "system",
