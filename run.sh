@@ -22,25 +22,39 @@ else
     echo "pip3 is already installed."
 fi
 
+#------------------------------------------------------------------------------
+# Create a Python virtual environment (named 'venv') if it doesn't already exist
+if [ ! -d "venv" ]; then
+    echo "Creating a virtual environment in './venv'..."
+    python3 -m venv venv
+else
+    echo "Virtual environment 'venv' already exists."
+fi
+
+# Activate the virtual environment
+echo "Activating the virtual environment..."
+# shellcheck disable=SC1091
+source venv/bin/activate
+#------------------------------------------------------------------------------
+
 # Run pip install commands
 if [ -f setup.py ]; then
     echo "Running pip install ."
-    pip3 install --upgrade pip setuptools wheel
-    pip3 install . --use-pep517
+    pip install --upgrade pip setuptools wheel
+    pip install . --use-pep517
 else
     echo "setup.py not found, skipping pip install ."
 fi
 
 if [ -f requirements.txt ]; then
     echo "Installing requirements from requirements.txt..."
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
 else
     echo "requirements.txt not found."
 fi
 
 # Check if api.py is running and kill it if necessary
 API_PROCESSES=$(pgrep -f api.py)
-
 if [ -n "$API_PROCESSES" ]; then
     echo "api.py is already running. Killing processes..."
     for PID in $API_PROCESSES; do
@@ -50,20 +64,26 @@ if [ -n "$API_PROCESSES" ]; then
 else
     echo "api.py is not running."
 fi
-# Run api.py and execute.py
+
+# Run api.py in the background
 if [ -f api.py ]; then
     echo "Running api.py in the background..."
-    nohup python3 api.py > api.log 2>&1 &
+    nohup python api.py > api.log 2>&1 &
 else
     echo "api.py not found."
 fi
 
+# Run execute.py in the foreground
 if [ -f execute.py ]; then
     echo "Running execute.py in the foreground..."
-    python3 execute.py
+    python execute.py
 else
     echo "execute.py not found."
 fi
 
 # Final message
 echo "Script execution complete."
+
+# Deactivate the virtual environment
+echo "Deactivating the virtual environment..."
+deactivate
