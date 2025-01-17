@@ -1,5 +1,6 @@
 /generated
 /build
+/venv
 /src/__pycache__
 /erl_code_generator.egg-info
 .env
