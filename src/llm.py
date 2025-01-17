@@ -48,7 +48,7 @@ def generate_code(user_input, base_path):
             }, 
             {
                 "role": "user",
-                "content": "Generate a valid JSON response like `{\"language\": {\"{language}\"},\"code\":{\"{base_path}/{full_path_to_file}\":\"{content}\"}}` for every file needed to support the product"
+                "content": "Generate all the code in a valid JSON response like `{\"language\": {\"{language}\"},\"code\":{\"{base_path}/{full_path_to_file}\":\"{content}\"}}` for every file needed to support the product"
             },
             {
                 "role": "user",
