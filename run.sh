@@ -40,15 +40,15 @@ source venv/bin/activate
 # Run pip install commands
 if [ -f setup.py ]; then
     echo "Running pip install ."
-    pip install --upgrade pip setuptools wheel
-    pip install . --use-pep517
+    pip3 install --upgrade pip setuptools wheel
+    pip3 install .
 else
     echo "setup.py not found, skipping pip install ."
 fi
 
 if [ -f requirements.txt ]; then
     echo "Installing requirements from requirements.txt..."
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 else
     echo "requirements.txt not found."
 fi
@@ -68,7 +68,7 @@ fi
 # Run api.py in the background
 if [ -f api.py ]; then
     echo "Running api.py in the background..."
-    nohup python api.py > api.log 2>&1 &
+    nohup python3 api.py > api.log 2>&1 &
 else
     echo "api.py not found."
 fi
@@ -76,7 +76,7 @@ fi
 # Run execute.py in the foreground
 if [ -f execute.py ]; then
     echo "Running execute.py in the foreground..."
-    python execute.py
+    python3 execute.py
 else
     echo "execute.py not found."
 fi
