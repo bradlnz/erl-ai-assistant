@@ -22,25 +22,13 @@ else
     echo "pipx is already installed."
 fi
 
-#------------------------------------------------------------------------------
-# Create a Python virtual environment (named 'venv') if it doesn't already exist
-if [ ! -d "venv" ]; then
-    echo "Creating a virtual environment in './venv'..."
-    python3 -m venv venv
-else
-    echo "Virtual environment 'venv' already exists."
-fi
-
-# Activate the virtual environment
-echo "Activating the virtual environment..."
-# shellcheck disable=SC1091
-source venv/bin/activate
+#----------------------------------------------
 #------------------------------------------------------------------------------
 
 # Run pip install commands
 if [ -f setup.py ]; then
     echo "Running pip install ."
-    pipx install --upgrade pip setuptools wheel
+    pipx install setuptools wheel
     pipx install .
 else
     echo "setup.py not found, skipping pip install ."
@@ -83,7 +71,3 @@ fi
 
 # Final message
 echo "Script execution complete."
-
-# Deactivate the virtual environment
-echo "Deactivating the virtual environment..."
-deactivate
