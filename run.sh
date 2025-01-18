@@ -15,28 +15,40 @@ else
 fi
 
 # Install pip if not already installed
-if ! command_exists pipx; then
-    echo "pipx not found. Installing pip3..."
-    sudo apt install -y pipx
+if ! command_exists pip3; then
+    echo "pip3 not found. Installing pip3..."
+    sudo apt install -y python3-pip
 else
-    echo "pipx is already installed."
+    echo "pip3 is already installed."
 fi
 
-#----------------------------------------------
+#------------------------------------------------------------------------------
+# Create a Python virtual environment (named 'venv') if it doesn't already exist
+if [ ! -d "venv" ]; then
+    echo "Creating a virtual environment in './venv'..."
+    python3 -m venv venv
+else
+    echo "Virtual environment 'venv' already exists."
+fi
+
+# Activate the virtual environment
+echo "Activating the virtual environment..."
+# shellcheck disable=SC1091
+source venv/bin/activate
 #------------------------------------------------------------------------------
 
 # Run pip install commands
 if [ -f setup.py ]; then
     echo "Running pip install ."
-    pipx install setuptools wheel
-    pipx install .
+    pip3 install setuptools wheel
+    pip3 install . --use-pep517
 else
     echo "setup.py not found, skipping pip install ."
 fi
 
 if [ -f requirements.txt ]; then
     echo "Installing requirements from requirements.txt..."
-    pipx install -r requirements.txt
+    pip3 install -r requirements.txt
 else
     echo "requirements.txt not found."
 fi
@@ -68,6 +80,8 @@ if [ -f execute.py ]; then
 else
     echo "execute.py not found."
 fi
+
+deactivate
 
 # Final message
 echo "Script execution complete."
