@@ -15,11 +15,11 @@ else
 fi
 
 # Install pip if not already installed
-if ! command_exists pip3; then
-    echo "pip3 not found. Installing pip3..."
-    sudo apt install -y python3-pip
+if ! command_exists pipx; then
+    echo "pipx not found. Installing pip3..."
+    sudo apt install -y pipx
 else
-    echo "pip3 is already installed."
+    echo "pipx is already installed."
 fi
 
 #------------------------------------------------------------------------------
@@ -40,15 +40,15 @@ source venv/bin/activate
 # Run pip install commands
 if [ -f setup.py ]; then
     echo "Running pip install ."
-    pip3 install --upgrade pip setuptools wheel
-    pip3 install .
+    pipx install --upgrade pip setuptools wheel
+    pipx install .
 else
     echo "setup.py not found, skipping pip install ."
 fi
 
 if [ -f requirements.txt ]; then
     echo "Installing requirements from requirements.txt..."
-    pip3 install -r requirements.txt
+    pipx install -r requirements.txt
 else
     echo "requirements.txt not found."
 fi
